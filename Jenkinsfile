@@ -1,6 +1,3 @@
-
-node('node1')
-
 node
 
 {
