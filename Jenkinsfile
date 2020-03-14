@@ -18,12 +18,12 @@ node
  {
  sh  "${mavenHome}/bin/mvn clean package"
  }
-  /*
+ 
  stage('ExecuteSoanrQubeReport')
  {
  sh  "${mavenHome}/bin/mvn sonar:sonar"
  }
- 
+  /*
  stage('UploadArtifactintoNexus')
  {
  sh  "${mavenHome}/bin/mvn deploy"
