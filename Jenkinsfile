@@ -2,7 +2,7 @@ node
 
 {
 
-  /*def mavenHome=tool name: "maven3.6.3"*/
+  def mavenHome=tool name: "maven3.6.3"
   
  stage('Checkout')
  {
@@ -13,12 +13,12 @@ node
  
 
 
- /*
+
  stage('Build')
  {
  sh  "${mavenHome}/bin/mvn clean package"
  }
- 
+  /*
  stage('ExecuteSoanrQubeReport')
  {
  sh  "${mavenHome}/bin/mvn sonar:sonar"
@@ -35,7 +35,7 @@ node
   sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.235.132.183:/opt/apache-tomcat-9.0.29/webapps/"
  }
  }
-*/
+
  stage('SendEmailNotification')
  {
  emailext body: '''Build is over..
@@ -43,6 +43,6 @@ node
  Regards,
  Mithun Technologies,
  9980923226.''', subject: 'Build is over', to: 'geethikainfy@gmail.com'
- }
+ } */
 
 }
