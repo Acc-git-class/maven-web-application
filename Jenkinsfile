@@ -23,12 +23,12 @@ node
  {
  sh  "${mavenHome}/bin/mvn sonar:sonar"
  }
-  /*
+ 
  stage('UploadArtifactintoNexus')
  {
  sh  "${mavenHome}/bin/mvn deploy"
  }
- 
+  /*
  stage('DeployAppintoTomcat')
  {
  sshagent(['cd93d61f-2d0f-4c60-8b33-34cf4fa888b0']) {
