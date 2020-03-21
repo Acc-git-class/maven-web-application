@@ -28,6 +28,17 @@ node
  {
  sh  "${mavenHome}/bin/mvn deploy"
  }
+  
+ stage('Docker Integration')
+ {
+ sh "docker build -t geethika609/maven-web-application:${buildNumber} ."
+ }
+ 
+ stage('Docker login and push')
+ {
+ sh "docker login -u geethika609 -p Geethika@609"
+ sh "docker push geethika609/maven-web-application:${buildNumber}"
+ }
   /*
  stage('DeployAppintoTomcat')
  {
