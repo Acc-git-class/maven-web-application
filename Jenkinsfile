@@ -39,6 +39,15 @@ node
  sh "docker login -u geethika609 -p Geethika@609"
  sh "docker push geethika609/maven-web-application:${buildNumber}"
  }
+  
+  stage('Deploying the docker image to Docker Deployment')
+  {
+  sshagent(['SSH'])
+  {
+  sh "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 docker rm -f mavenwebapplicationcontainer || true"
+  sh  "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 docker run -d -p 8080:8080 --name mavenwebapplicationcontainer geethika609/maven-web-application:${buildNumber}"
+  }
+  }
   /*
  stage('DeployAppintoTomcat')
  {
