@@ -1,7 +1,7 @@
 node
 
 {
-
+  def buildNumber= BUILD_NUMBER
   def mavenHome=tool name: "maven3.6.3"
   
  stage('Checkout')
