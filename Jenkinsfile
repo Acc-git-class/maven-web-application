@@ -44,8 +44,8 @@ node
   {
   sshagent(['SSH'])
   {
-  sh "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 docker rm -f mavenwebapplicationcontainer || true"
-  sh  "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 docker run -d -p 8080:8080 --name mavenwebapplicationcontainer geethika609/maven-web-application:${buildNumber}"
+  sh "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 sudo docker rm -f mavenwebapplicationcontainer || true"
+  sh  "ssh -o StrictHostKeyChecking=no ubuntu@13.127.219.27 sudo docker run -d -p 8080:8080 --name mavenwebapplicationcontainer geethika609/maven-web-application:${buildNumber}"
   }
   }
   /*
