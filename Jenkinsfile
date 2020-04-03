@@ -48,7 +48,7 @@ node
   { 
   kubernetesDeploy(
           configs: 'mavenapp.yml', 
-          kubeconfigId: 'KUBERNATES_CONFIG', 
+          kubeconfigId: 'KUBERNETES_CONFIG', 
           enableConfigSubstitution: true
        )
   }
