@@ -10,10 +10,6 @@ node
  
  }
 
- 
-
-
-
  stage('Build')
  {
  sh  "${mavenHome}/bin/mvn clean package"
@@ -47,6 +43,16 @@ node
   sh "ssh -o StrictHostKeyChecking=no ubuntu@15.206.91.30 sudo docker rm -f mavenwebapplicationcontainer || true"
   sh  "ssh -o StrictHostKeyChecking=no ubuntu@15.206.91.30 sudo docker run -d -p 8080:8080 --name mavenwebapplicationcontainer geethika609/maven-web-application:${buildNumber}"
   }
+    
+  stage("Deploy To Kuberates Cluster")
+  { 
+  kubernetesDeploy(
+          configs: 'springBootMongo.yml', 
+          kubeconfigId: 'KUBERNATES_CONFIG', 
+          enableConfigSubstitution: true
+       )
+  }
+
   }
   /*
  stage('DeployAppintoTomcat')
