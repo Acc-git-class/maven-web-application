@@ -12,7 +12,7 @@ spec:
         name: maven
     spec:
       containers:
-      - image: geethika609/maven-web-application
+      - image: geethika609/maven-web-application:22
         name: maven
         ports:
         - name: maven
