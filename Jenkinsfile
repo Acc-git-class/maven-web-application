@@ -47,7 +47,7 @@ node
   stage("Deploy To Kuberates Cluster")
   { 
   kubernetesDeploy(
-          configs: 'springBootMongo.yml', 
+          configs: 'mavenapp.yml', 
           kubeconfigId: 'KUBERNATES_CONFIG', 
           enableConfigSubstitution: true
        )
