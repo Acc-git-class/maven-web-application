@@ -12,7 +12,7 @@ spec:
         name: maven
     spec:
       containers:
-      - image: geethika609/maven-web-application:23
+      - image: geethika609/maven-web-application
         name: maven
         ports:
         - name: maven
@@ -21,12 +21,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    name: maven
   name: maven
 spec:
   type: NodePort
-  ports: 
-    - port: 8080
-      targetPort: 8080
-  selector: maven
+  selector:
+    name: maven
+  ports:
+    - port: 80
+      
